@@ -1,0 +1,23 @@
+body {
+            background-image: url('cc.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+.ticket-section {
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            background-color: #f8f9fa;
+            background: rgb(0,0,0);
+            background: linear-gradient(0deg, rgba(0,0,0,0.34226190476190477) 0%, rgba(151,125,95,1) 0%, rgba(103,84,61,1) 97%);      
+        }
+
+.footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Online Ticketing Center</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap JS and JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+   <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Online Ticketing Center</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+       
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#tickets">Tickets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+ <!-- Main Content -->
+    <div class="container mt-4">
+        <h1 class="text-center">Ticketing Center</h1>
+        
+        <div class="ticket-section">
+            <h2>What movie?</h2>
+                <div class="row">
+
+                    <!-- Horror -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                            <h5 class="card-title"></h5>
+        
+                            <h4><p class="card-text">Horror</p></h4>
+                            <p class="card-text">Price: ₱400</p>
+                            <button onclick="calculateTotal('concert')" class="btn btn-danger">Buy Now</button>
+                        </div>
+                    </div>
+               
+                    
+                    <!-- Fantasy -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Fantasy</h5>
+                                <p class="card-text">Price: ₱350</p>
+                                <button onclick="calculateTotal('movie')" class="btn btn-danger">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Romantic -->
+                    <div class="col-md-4 mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Romantic</h5>
+                                <p class="card-text">Price: ₱400</p>
+                                <button onclick="calculateTotal('theater')" class="btn btn-danger">Buy Now</button>
+                            </div>
+                        </div>
+                     </div>
+
+                </div>            
+        </div>
+    </div>
+
+    
+    <footer class="footer text-center">
+        <p>@Hikari Fukuda</p>
+    </footer>
+      
+    <script>
+        // Ticket prices
+        const prices = {
+            concert: 50,
+            movie: 15,
+            theater: 30
+        };
+
+        // Calculate total and display message
+        function calculateTotal(ticketType) {
+            let quantity = prompt("How many tickets would you like to purchase?");
+            
+            // Convert input to number
+            quantity = parseInt(quantity);
+            
+            // Verify if input is valid
+            if (isNaN(quantity) || quantity <= 0) {
+                alert("Please enter a valid number!");
+                return;
+            }
+
+            // Calculate total price
+            let total = prices[ticketType] * quantity;
+            
+            // Apply discount for bulk purchases
+            if (quantity >= 5) {
+                total = total * 0.9; // 10% discount
+            }
+
+            // Display result
+            document.getElementById("navbarNav").innerHTML += 
+                `<div class="alert alert-success">
+                    Your total for ${quantity} ${ticketType} ticket(s) is $${total}
+                </div>`;
+        }
+
+
+</script>
+</body>
+</html>
